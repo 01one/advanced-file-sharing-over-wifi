@@ -1,11 +1,15 @@
 from flask import Flask, render_template, send_from_directory, url_for
 import os
-import getpass
-username = getpass.getuser() #current username
 
 app = Flask(__name__)
 
-shared_space = 'C:\\Users\\{}\\Downloads'.format(username) #Shared folder location. customize it on your need. 
+
+home_directory = os.path.expanduser("~")
+shared_space = os.path.join(home_directory, 'Downloads')
+
+#import getpass
+#username = getpass.getuser() #current username
+#shared_space = 'C:\\Users\\{}\\Downloads'.format(username) #Shared folder location. customize it on your need. 
 
 @app.route('/')
 @app.route('/<path:folder>/')
