@@ -18,7 +18,7 @@ shared_space = os.path.join(home_directory, 'Downloads')
 def index(folder=''):
 	folder_path = os.path.join(shared_space, folder)
 	files = get_file_list(folder_path)
-	return render_template('index.html', files=files, current_folder=folder)
+	return render_template('index.html', files=files, current_folder=folder_path)
 
 @app.route('/download/<path:folder>/<filename>')
 def download_file(folder, filename):
